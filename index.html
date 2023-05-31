@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qoutes App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <h1>Quote:</h1>
+                <p class="qoute" id="quote"></p>
+                <p class="author" id="author"></p>
+                <button class="btn" id="newQuote">New Quote</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let quote = document.getElementById("quote");
+        let author = document.getElementById("author");
+        let newQuote = document.getElementById("newQuote");
+        let num;
+        const getNew = () =>{
+                num = Math.floor(Math.random()*1620);
+                console.log(num)
+            }
+        
+        const getQuote = async () =>{
+            const api = "https://type.fit/api/quotes";
+            let Data = await fetch(api);
+            let realData = await Data.json();
+            // console.log(realData);
+            getNew();
+            quote.innerHTML = `"${realData[num].text}"`;
+            realData[num].author === null ? author.innerHTML = `Author: Unknown`:author.innerHTML = `Author:  ${realData[num].author}`;
+            
+        }
+
+        newQuote.addEventListener('click',getQuote);
+
+        getQuote();
+    </script>
+    
+</body>
+</html>

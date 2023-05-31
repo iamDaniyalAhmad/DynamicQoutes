@@ -1,0 +1,53 @@
+body{
+    background-color: darkslategray;
+    height: 100%;
+    width: 100%;
+
+}
+
+.row{
+    height: 400px;
+    width: 600px;
+    /* background-color: white; */
+    margin: auto;
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    height: 300px;
+    width: 85%;
+    background-color: black;
+    color: yellow;
+    border-radius: 8px;
+    padding: 30px;
+    /* margin: auto; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+.btn{
+    background-color: black;
+    color: yellow;
+    border: 2px solid white;
+    border-radius: 5px;
+    margin-top: 80px;
+    height: 30px;
+    width: 200px;
+}
+
+.btn:hover{
+    background-color: darkslategray;
+    color: black;
+}
+
+.author{
+    margin-left: 300px;
+}
